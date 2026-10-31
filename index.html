@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AOオリジナルカードゲーム | 公式サイト</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0a0a16;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ヘッダー */
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: radial-gradient(circle at center, #1a1a3a 0%, #0a0a16 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0, 255, 204, 0.1);
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(45deg, #ffffff, #00ffcc, #0099ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: #aab;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .btn-play {
+      display: inline-block;
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(45deg, #00ffcc, #0099ff);
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-play:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 35px rgba(0, 255, 204, 0.8);
+    }
+
+    /* 特長セクション */
+    .features {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #00ffcc;
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .feature-card {
+      background: #121224;
+      border: 1px solid #223355;
+      border-radius: 16px;
+      padding: 25px;
+      transition: border-color 0.3s;
+    }
+    .feature-card:hover {
+      border-color: #00ffcc;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #8899aa;
+    }
+
+    /* 注目カード紹介 */
+    .highlight-section {
+      background: #0d0d1e;
+      padding: 60px 20px;
+      border-top: 1px solid #1a2a40;
+      border-bottom: 1px solid #1a2a40;
+    }
+    .card-showcase {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .card-preview {
+      width: 140px;
+      height: 210px;
+      background: #16162a;
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .card-preview.infinity {
+      border: 3px solid transparent;
+      background: linear-gradient(#16162a, #16162a) padding-box,
+                  linear-gradient(45deg, #ff0000, #ffff00, #00ffff, #8b00ff) border-box;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    .card-preview.legend {
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .preview-cost {
+      background: #00ffcc;
+      color: #000;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .preview-rarity { color: #aaa; }
+    .preview-title {
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .preview-desc {
+      font-size: 0.65rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #556677;
+      font-size: 0.85rem;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 0.95rem; }
+    }
+
+    /* ====================================
+       ★ スライド（フェードイン）用CSSを追加
+       ==================================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px); /* 下から上へ移動 */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    /* 画面内に入った時に付与されるクラス */
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AO CARD GAME</div>
+    </header>
+
+    <section class="hero fade-in">
+        <div class="hero-badge">いつも通りブラウザで遊べる！</div>
+        <h1 class="hero-title">蒼き力を解き放て！<br>傑作（だと思う）<br>オリジナルカードゲーム</h1>
+        <p class="hero-subtitle">
+            カードを集めて、自分だけのデッキを構築しよう！<br>
+            特殊なカード、頭を使う？戦場へ今すぐ飛び込もう！
+        </p>
+        <a href="game.html" class="btn-play">蒼き世界へいざ飛び込もう！</a>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title fade-in">GAME FEATURES</h2>
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔊</div>
+                <h3>カットイン＆ボイス演出</h3>
+                <p>最高レア「Infinity」カードを発動すると、画面全体を切り裂く蒼い虹のカットインと限定録音ボイスで敵を圧倒させろ！</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎴</div>
+                <h3>デッキビルディング＆ガチャ</h3>
+                <p>バトルで集めたコインでガチャを回そう！手に入れたカードで自分だけのオリジナルデッキをつくろう！</p>
+            </div>
+            <div class="feature-card fade-in">
+              <div class="feature-icon">🎴</div>
+              <h3>カードは全部で19種類！</h3>
+              <p>カードには「Common」、「Rare」、「Legend」、「Infinity」のレア度がある。レア度が高いと強くもなるが、ガチャで出にくくなる。<br>それぞれのカードにコストがある。そのコストを意識しながら戦略的に戦おう！</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🕒</div>
+                <h3>現実と連動する時間帯背景➡これは前（放置ゲー）と同じやな</h3>
+                <p>プレイする現実の時間（朝・昼・夕方・夜）に合わせて、ゲーム画面の背景がリアルタイムに変化！</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight-section">
+      <h2 class="section-title fade-in">FEATURED CARDS</h2>
+      <div class="card-showcase">
+
+        <div class="card-preview infinity fade-in">
+          <div class="preview-header">
+            <div class="preview-cost">3</div>
+            <div class="preview-rarity" style="color: #ff00ff;">Infinity</div>
+          </div>
+          <div class="preview-title">蒼真の怒り</div>
+          <div class="preview-desc">300ダメージ＆録音ボイス</div>
+        </div>
+
+        <div class="card-preview infinity fade-in">
+          <div class="preview-header">
+            <div class="preview-cost">3</div>
+            <div class="preview-rarity" style="color: #ff00ff;">Infinity</div>
+          </div>
+          <div class="preview-title">蒼き魂の瞬き</div>
+          <div class="preview-desc">150ダメ+30盾+毒15＆録音ボイス</div>
+        </div>
+
+        <div class="card-preview infinity fade-in">
+          <div class="preview-header">
+            <div class="preview-cost">2</div>
+            <div class="preview-rarity" style="color: #ff00ff;">Infinity</div>
+          </div>
+          <div class="preview-title">蒼天の輝き</div>
+          <div class="preview-desc">全回復(50)＆⚡3回復＆録音ボイス</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 AO CARD GAME. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ====================================
+       ★ 画面スライド検知スクリプトを追加
+       ==================================== -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.15 // 要素が15%画面に入ったら発動
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); // 一度表示されたら監視解除
+            }
+          });
+        }, observerOptions);
+
+        // fade-inクラスが付いている要素をすべて監視する
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => observer.observe(el));
+      });
+    </script>
+</body>
+</html>
